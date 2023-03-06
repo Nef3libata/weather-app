@@ -41,6 +41,7 @@ celcius.addEventListener("click", convertCelcius);
 fahrenheit.addEventListener("click", convertFahrenheit);
 
 //Set the current temperature, wind speed, and weather description of the city that was searched for
+let apiKey = config.apiKey;
 let units = "metric";
 //The input of the city that user searched for
 let searchedCity = document.querySelector("#searched-city");
