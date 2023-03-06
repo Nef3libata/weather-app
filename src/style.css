@@ -1,0 +1,60 @@
+body {
+  padding: 40px;
+  background-color: #f7fbfc;
+  font-family: "Raleway", sans-serif;
+  color: rgb(0, 0, 0, 0.8);
+}
+h1 {
+  font-size: 3.5rem;
+}
+h2 {
+  font-weight: bold;
+  font-size: 2.5rem;
+  line-height: 48px;
+}
+.week-day {
+  padding-top: 15px;
+  font-size: 25px;
+}
+p {
+  font-size: 25px;
+}
+img {
+  width: 200px;
+}
+.image-card {
+  width: 100px;
+  display: block;
+}
+.temperature {
+  padding-top: 60px;
+}
+.round {
+  border-radius: 25px;
+  padding: 11px;
+  font-size: 18px;
+  margin-top: 6px;
+}
+.information {
+  line-height: 40px;
+}
+
+#c-unit {
+  font-size: 38px;
+  position: relative;
+  bottom: 15px;
+  color: rgb(0, 0, 0, 0.8);
+  text-decoration: none;
+}
+
+#f-unit {
+  font-size: 35px;
+  position: relative;
+  top: 18px;
+  right: 23px;
+  color: rgb(0, 0, 0, 0.4);
+  text-decoration: none;
+}
+#description {
+  text-transform: capitalize;
+}
