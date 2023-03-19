@@ -75,6 +75,14 @@ function showTemperature(response) {
 
   //clear the search bar
   document.getElementById("searched-city").value = "";
+
+  //setting the related weather icon
+  let iconElement = document.querySelector("#icon");
+  icon = response.data.weather[0].icon;
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${icon}@4x.png`
+  );
 }
 
 //show current weather of Sydney
