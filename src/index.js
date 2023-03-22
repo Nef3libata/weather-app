@@ -91,6 +91,49 @@ function showTemperature(response) {
     "alt",
     `${response.data.weather[0].description} image`
   );
+  console.log(apiUrl);
+  displayForcast(response.data.coord);
+}
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+function showForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = "";
+  forecast.forEach(function (forecastDay, index) {
+    if (index >= 0 && index < 5) {
+      console.log(forecastDay.condition.description);
+      forecastHTML =
+        forecastHTML +
+        `
+          <div class="col">
+            <div class="card h-100">
+              <h3 class="card-text text-center week-day">${formatDay(
+                forecastDay.time
+              )}</h3>
+              <img
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                  forecastDay.condition.icon
+                }.png"
+                class="card-img-top mx-auto image-card"
+                alt="sunny"
+              />
+              <div class="card-body">
+                <p class="card-text text-center">${Math.round(
+                  forecastDay.temperature.day
+                )}°</p>
+              </div>
+            </div>
+          </div>`;
+    }
+  });
+
+  forecastElement.innerHTML = forecastHTML;
+  console.log(apiUrl);
 }
 
 //show current weather of Sydney
@@ -120,5 +163,11 @@ function setPosition(position) {
     apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
     axios.get(apiUrl).then(showTemperature);
   };
+}
+function displayForcast(coords) {
+  key = "73e5570ffob2fbe1fb66709af4e34at7";
+  apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coords.lon}&lat=${coords.lat}&key=${key}`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(showForecast);
 }
 navigator.geolocation.getCurrentPosition(setPosition);
