@@ -91,7 +91,6 @@ function showTemperature(response) {
     "alt",
     `${response.data.weather[0].description} image`
   );
-  console.log(apiUrl);
   displayForcast(response.data.coord);
 }
 function formatDay(timestamp) {
@@ -105,8 +104,7 @@ function showForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = "";
   forecast.forEach(function (forecastDay, index) {
-    if (index >= 0 && index < 5) {
-      console.log(forecastDay.condition.description);
+    if (index > 0 && index < 6) {
       forecastHTML =
         forecastHTML +
         `
@@ -133,7 +131,6 @@ function showForecast(response) {
   });
 
   forecastElement.innerHTML = forecastHTML;
-  console.log(apiUrl);
 }
 
 //show current weather of Sydney
@@ -167,7 +164,6 @@ function setPosition(position) {
 function displayForcast(coords) {
   key = "73e5570ffob2fbe1fb66709af4e34at7";
   apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coords.lon}&lat=${coords.lat}&key=${key}`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(showForecast);
 }
 navigator.geolocation.getCurrentPosition(setPosition);
