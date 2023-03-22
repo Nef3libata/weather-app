@@ -43,7 +43,6 @@ img {
   font-size: 38px;
   position: relative;
   bottom: 15px;
-  color: rgb(0, 0, 0, 0.8);
   text-decoration: none;
 }
 
@@ -52,9 +51,16 @@ img {
   position: relative;
   top: 18px;
   right: 23px;
-  color: rgb(0, 0, 0, 0.4);
   text-decoration: none;
 }
 #description {
   text-transform: capitalize;
+}
+
+.active {
+  color: rgb(0, 0, 0, 0.8);
+  cursor: default;
+}
+
+.active:hover {
 }
